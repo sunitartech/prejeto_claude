@@ -1,0 +1,35 @@
+# Claude Code
+.claude/
+
+# Logs
+*.log
+logs/
+
+# Variáveis de ambiente
+.env
+.env.local
+
+# Dependências
+node_modules/
+vendor/
+
+# Sistema (Windows + macOS)
+Thumbs.db
+desktop.ini
+.DS_Store
+$RECYCLE.BIN/
+
+# Builds
+dist/
+build/
+out/
+*.exe
+*.dll
+*.obj
+*.pdb
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
