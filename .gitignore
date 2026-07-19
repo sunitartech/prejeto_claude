@@ -1,23 +1,57 @@
 # Claude Code
 .claude/
 
-# Logs
-*.log
-logs/
+# Flutter / Dart
+app/.dart_tool/
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+app/.packages
+app/build/
+app/.idea/
+app/.vscode/
+app/.dart_tool/
+app/fitnho.iml
+app/android/.gradle/
+app/android/app/debug/
+app/android/app/profile/
+app/android/app/release/
+app/android/.idea/
+app/android/.gradle/
+app/android/local.properties
+app/ios/Pods/
+app/ios/.symlinks/
+app/ios/Flutter/Flutter.framework
+app/ios/Flutter/Flutter.podspec
+app/ios/Flutter/flutter_export_environment.sh
+app/ios/Runner.xcworkspace/xcuserdata/
+app/web/index.html
+app/.metadata
 
-# Variáveis de ambiente
+# Firebase (arquivos sensiveis/auto-gerados)
+app/lib/firebase_options.dart
+app/android/app/google-services.json
+app/ios/Runner/GoogleService-Info.plist
+app/.firebaserc
+app/firebase-debug.log
+app/firestore-debug.log
+app/ui-debug.log
+
+# Ambiente / segredos
 .env
 .env.local
-
-# Dependências
-node_modules/
-vendor/
+*.env
 
 # Sistema (Windows + macOS)
 Thumbs.db
 desktop.ini
 .DS_Store
 $RECYCLE.BIN/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
 
 # Builds
 dist/
@@ -28,8 +62,6 @@ out/
 *.obj
 *.pdb
 
-# IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
+# Logs
+*.log
+logs/

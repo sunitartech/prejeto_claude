@@ -1,0 +1,345 @@
+[
+  {
+    "id": "pao-queijo-fit",
+    "titulo": "Pao de queijo fit",
+    "descricao": "Versao mais leve do classico mineiro, feita com polvilho doce e queijo branco.",
+    "imagemUrl": "https://images.unsplash.com/photo-1626202379211-f8a6f7b2b6c2?w=800",
+    "tempoPreparoMin": 25,
+    "porcoes": 12,
+    "dificuldade": "facil",
+    "categoria": "fit",
+    "ingredientes": [
+      "2 xicaras de polvilho doce",
+      "1 xicara de queijo branco ralado",
+      "1/2 xicara de leite desnatado",
+      "2 colheres de sopa de oleo de coco",
+      "2 ovos",
+      "1 pitada de sal"
+    ],
+    "modoPreparo": [
+      "Pre-aqueca o forno a 180 graus Celsius.",
+      "Em uma tigela, misture o polvilho, o queijo ralado e o sal.",
+      "Adicione os ovos, o leite e o oleo de coco. Mexa bem ate homogeneizar.",
+      "Modele bolinhas com as maos e disponha em uma assadeira untada.",
+      "Leve ao forno por 20 minutos ou ate dourar."
+    ],
+    "tags": ["sem gluten", "lanche rapido", "vegetariano"],
+    "ehPremium": false,
+    "publicadaEm": "2026-06-15T10:00:00Z",
+    "informacaoNutricional": "90 kcal por unidade"
+  },
+  {
+    "id": "smoothie-verde",
+    "titulo": "Smoothie verde energetico",
+    "descricao": "Suco verde com couve, banana, gengibre e limao para comecar o dia com disposicao.",
+    "imagemUrl": "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=800",
+    "tempoPreparoMin": 5,
+    "porcoes": 1,
+    "dificuldade": "facil",
+    "categoria": "fit",
+    "ingredientes": [
+      "1 folha de couve",
+      "1 banana congelada",
+      "1/2 pepino",
+      "Suco de 1 limao",
+      "1 cm de gengibre",
+      "200 ml de agua de coco"
+    ],
+    "modoPreparo": [
+      "Lave bem a couve e o pepino.",
+      "Coloque todos os ingredientes no liquidificador.",
+      "Bata por 1 minuto ate ficar homogeneo.",
+      "Sirva imediatamente com gelo, se desejar."
+    ],
+    "tags": ["detox", "vegano", "sem lactose"],
+    "ehPremium": false,
+    "publicadaEm": "2026-06-20T08:00:00Z",
+    "informacaoNutricional": "180 kcal por porcao"
+  },
+  {
+    "id": "brownie-banana",
+    "titulo": "Brownie de banana sem acucar",
+    "descricao": "Brownie umido e chocolatudo, adocado naturalmente com banana madura.",
+    "imagemUrl": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=800",
+    "tempoPreparoMin": 30,
+    "porcoes": 8,
+    "dificuldade": "media",
+    "categoria": "doce",
+    "ingredientes": [
+      "3 bananas maduras",
+      "2 ovos",
+      "4 colheres de sopa de cacau em po",
+      "3 colheres de sopa de aveia em flocos",
+      "2 colheres de sopa de oleo de coco",
+      "1 colher de cha de fermento em po"
+    ],
+    "modoPreparo": [
+      "Pre-aqueca o forno a 180 graus Celsius.",
+      "Amasse as bananas com um garfo e misture com os ovos.",
+      "Adicione o cacau, a aveia e o oleo de coco. Mexa bem.",
+      "Por ultimo, acrescente o fermento e misture delicadamente.",
+      "Despeje em uma forma untada e asse por 20 minutos."
+    ],
+    "tags": ["sem acucar", "lanche rapido", "vegano opcional"],
+    "ehPremium": false,
+    "publicadaEm": "2026-07-01T15:00:00Z",
+    "informacaoNutricional": "150 kcal por pedaco"
+  },
+  {
+    "id": "wrap-frango",
+    "titulo": "Wrap de frango com cream cheese",
+    "descricao": "Wrap integral recheado com frango desfiado, cream cheese e folhas verdes.",
+    "imagemUrl": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=800",
+    "tempoPreparoMin": 15,
+    "porcoes": 2,
+    "dificuldade": "facil",
+    "categoria": "salgado",
+    "ingredientes": [
+      "2 tortillas integrais",
+      "1 xicara de frango desfiado",
+      "2 colheres de sopa de cream cheese light",
+      "Folhas de alface a gosto",
+      "1 tomate picado",
+      "1 colher de cha de azeite"
+    ],
+    "modoPreparo": [
+      "Aqueça levemente as tortillas em uma frigideira.",
+      "Passe o cream cheese sobre cada tortilla.",
+      "Distribua o frango, a alface e o tomate.",
+      "Regue com azeite e enrole apertado.",
+      "Corte ao meio e sirva."
+    ],
+    "tags": ["proteico", "rapido", "low carb"],
+    "ehPremium": false,
+    "publicadaEm": "2026-07-05T11:00:00Z",
+    "informacaoNutricional": "320 kcal por wrap"
+  },
+  {
+    "id": "salada-caesar-light",
+    "titulo": "Salada caesar light",
+    "descricao": "Versao leve da classica caesar, com frango grelhado e molho caseiro.",
+    "imagemUrl": "https://images.unsplash.com/photo-1546793665-c74683f339c1?w=800",
+    "tempoPreparoMin": 20,
+    "porcoes": 2,
+    "dificuldade": "media",
+    "categoria": "salgado",
+    "ingredientes": [
+      "2 peitos de frango",
+      "4 xicaras de alface romana",
+      "2 colheres de sopa de iogurte natural",
+      "1 colher de sopa de mostarda dijon",
+      "1 colher de cha de alho picado",
+      "Croutons integrais a gosto"
+    ],
+    "modoPreparo": [
+      "Grelhe os peitos de frango e corte em fatias.",
+      "Em uma tigela pequena, misture o iogurte, a mostarda e o alho para fazer o molho.",
+      "Monte a salada com a alface, o frango e os croutons.",
+      "Regue com o molho e sirva."
+    ],
+    "tags": ["proteico", "low carb", "salada"],
+    "ehPremium": false,
+    "publicadaEm": "2026-07-08T12:00:00Z",
+    "informacaoNutricional": "280 kcal por porcao"
+  },
+  {
+    "id": "panqueca-aveia",
+    "titulo": "Panqueca de aveia com banana",
+    "descricao": "Panqueca fofinha feita com aveia e banana, sem farinha branca.",
+    "imagemUrl": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=800",
+    "tempoPreparoMin": 15,
+    "porcoes": 4,
+    "dificuldade": "facil",
+    "categoria": "doce",
+    "ingredientes": [
+      "1 xicara de aveia em flocos",
+      "2 bananas maduras",
+      "2 ovos",
+      "1 colher de cha de canela",
+      "1 colher de cha de fermento"
+    ],
+    "modoPreparo": [
+      "Bata todos os ingredientes no liquidificador por 1 minuto.",
+      "Aqueça uma frigideira antiaderente com um fio de oleo de coco.",
+      "Despeje uma concha de massa e cozinhe por 2 minutos de cada lado.",
+      "Repita com o restante da massa.",
+      "Sirva com frutas frescas ou mel."
+    ],
+    "tags": ["sem gluten", "rapido", "cafe da manha"],
+    "ehPremium": false,
+    "publicadaEm": "2026-07-10T09:00:00Z",
+    "informacaoNutricional": "180 kcal por panqueca"
+  },
+  {
+    "id": "mousse-maracuja",
+    "titulo": "Mousse de maracuja fit",
+    "descricao": "Mousse cremoso e aerado, adocado com mel e sem leite condensado.",
+    "imagemUrl": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800",
+    "tempoPreparoMin": 15,
+    "porcoes": 4,
+    "dificuldade": "media",
+    "categoria": "doce",
+    "ingredientes": [
+      "1 xicara de polpa de maracuja",
+      "1 lata de creme de leite light",
+      "3 colheres de sopa de mel",
+      "1 envelope de gelatina sem sabor",
+      "Sementes de maracuja para decorar"
+    ],
+    "modoPreparo": [
+      "Hidrate a gelatina conforme as instrucoes da embalagem.",
+      "No liquidificador, bata a polpa, o creme de leite e o mel.",
+      "Adicione a gelatina hidratada e bata rapidamente.",
+      "Despeje em potes individuais e leve a geladeira por 2 horas.",
+      "Decore com sementes de maracuja antes de servir."
+    ],
+    "tags": ["sem lactose opcional", "sobremesa"],
+    "ehPremium": false,
+    "publicadaEm": "2026-07-12T14:00:00Z",
+    "informacaoNutricional": "150 kcal por porcao"
+  },
+  {
+    "id": "bolinho-chuva-assado",
+    "titulo": "Bolinho de chuva assado",
+    "descricao": "Versao assada (sem fritura) do tradicional bolinho de chuva brasileiro.",
+    "imagemUrl": "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800",
+    "tempoPreparoMin": 35,
+    "porcoes": 15,
+    "dificuldade": "media",
+    "categoria": "doce",
+    "ingredientes": [
+      "2 xicaras de farinha de trigo integral",
+      "1/2 xicara de acucar demerara",
+      "1 ovo",
+      "1/2 xicara de leite desnatado",
+      "1 colher de sopa de fermento",
+      "Canela e acucar para polvilhar"
+    ],
+    "modoPreparo": [
+      "Pre-aqueca o forno a 200 graus Celsius.",
+      "Misture os ingredientes secos em uma tigela.",
+      "Adicione o ovo e o leite, mexendo ate homogeneizar.",
+      "Por ultimo, acrescente o fermento.",
+      "Modele bolinhas e disponha em assadeira untada.",
+      "Asse por 20 minutos e passe na canela com acucar."
+    ],
+    "tags": ["para congelar", "lanche infantil"],
+    "ehPremium": true,
+    "publicadaEm": "2026-07-14T16:00:00Z",
+    "informacaoNutricional": "90 kcal por unidade"
+  },
+  {
+    "id": "panqueca-whey",
+    "titulo": "Panqueca proteica de whey",
+    "descricao": "Panqueca rica em proteina, perfeita para o pos-treino.",
+    "imagemUrl": "https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=800",
+    "tempoPreparoMin": 10,
+    "porcoes": 1,
+    "dificuldade": "facil",
+    "categoria": "proteico",
+    "ingredientes": [
+      "1 scoop de whey protein sabor baunilha (30g)",
+      "1 ovo",
+      "2 colheres de sopa de aveia",
+      "1/2 banana amassada",
+      "Canela a gosto"
+    ],
+    "modoPreparo": [
+      "Misture todos os ingredientes em uma tigela ate ficar homogeneo.",
+      "Aqueça uma frigideira antiaderente com um fio de oleo.",
+      "Despeje a massa e cozinhe em fogo baixo por 2 minutos de cada lado.",
+      "Sirva com frutas vermelhas."
+    ],
+    "tags": ["com whey", "proteico", "pos-treino"],
+    "ehPremium": true,
+    "publicadaEm": "2026-07-15T08:00:00Z",
+    "informacaoNutricional": "320 kcal | 35g de proteina por porcao"
+  },
+  {
+    "id": "cookie-branco",
+    "titulo": "Cookie proteico de pasta de amendoim",
+    "descricao": "Cookie macio e proteico, sem farinha e sem acucar refinado.",
+    "imagemUrl": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=800",
+    "tempoPreparoMin": 20,
+    "porcoes": 8,
+    "dificuldade": "facil",
+    "categoria": "proteico",
+    "ingredientes": [
+      "1 xicara de pasta de amendoim integral",
+      "1/2 xicara de aveia",
+      "1 ovo",
+      "3 colheres de sopa de mel",
+      "1 scoop de whey protein (30g)",
+      "1 colher de cha de fermento"
+    ],
+    "modoPreparo": [
+      "Pre-aqueca o forno a 180 graus Celsius.",
+      "Misture todos os ingredientes em uma tigela.",
+      "Modele bolinhas e disponha em assadeira com papel manteiga.",
+      "Achate levemente com um garfo.",
+      "Asse por 12 minutos. Espere esfriar antes de retirar."
+    ],
+    "tags": ["com whey", "sem farinha", "proteico"],
+    "ehPremium": true,
+    "publicadaEm": "2026-07-16T10:00:00Z",
+    "informacaoNutricional": "180 kcal | 12g de proteina por cookie"
+  },
+  {
+    "id": "tigela-iogurte",
+    "titulo": "Tigela de iogurte com granola caseira",
+    "descricao": "Cafe da manha completo: iogurte, frutas frescas e granola feita em casa.",
+    "imagemUrl": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800",
+    "tempoPreparoMin": 10,
+    "porcoes": 1,
+    "dificuldade": "facil",
+    "categoria": "fit",
+    "ingredientes": [
+      "1 pote de iogurte natural",
+      "3 colheres de sopa de granola",
+      "1/2 xicara de frutas vermelhas",
+      "1 colher de sopa de sementes de chia",
+      "Mel a gosto"
+    ],
+    "modoPreparo": [
+      "Coloque o iogurte em uma tigela.",
+      "Cubra com a granola e as frutas.",
+      "Polvilhe a chia e regue com mel.",
+      "Sirva imediatamente."
+    ],
+    "tags": ["rapido", "cafe da manha", "sem lactose opcional"],
+    "ehPremium": false,
+    "publicadaEm": "2026-07-16T13:00:00Z",
+    "informacaoNutricional": "280 kcal por porcao"
+  },
+  {
+    "id": "almôndegas-assadas",
+    "titulo": "Almondegas de frango assadas para congelar",
+    "descricao": "Almondegas leves, feitas no forno e perfeitas para meal prep semanal.",
+    "imagemUrl": "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=800",
+    "tempoPreparoMin": 40,
+    "porcoes": 20,
+    "dificuldade": "media",
+    "categoria": "salgado",
+    "ingredientes": [
+      "500g de peito de frango moido",
+      "1 ovo",
+      "3 colheres de sopa de aveia",
+      "1/2 cebola picada",
+      "2 dentes de alho",
+      "Sal, pimenta e cheiro verde a gosto"
+    ],
+    "modoPreparo": [
+      "Pre-aqueca o forno a 200 graus Celsius.",
+      "Misture todos os ingredientes em uma tigela grande.",
+      "Modele bolinhas do tamanho de uma noz.",
+      "Disponha em assadeira forrada com papel manteiga.",
+      "Asse por 25 minutos, virando na metade do tempo.",
+      "Espere esfriar, divida em porcoes e congele em potes hermeticos.",
+      "Validade: 3 meses no congelador. Para reaquecer, leve ao forno ou micro-ondas."
+    ],
+    "tags": ["para congelar", "meal prep", "proteico"],
+    "ehPremium": true,
+    "publicadaEm": "2026-07-17T18:00:00Z",
+    "informacaoNutricional": "60 kcal por almondega | 8g de proteina"
+  }
+]
