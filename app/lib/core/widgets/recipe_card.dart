@@ -27,20 +27,23 @@ class RecipeCard extends StatelessWidget {
                   child: CachedNetworkImage(
                     imageUrl: receita.imagemUrl,
                     fit: BoxFit.cover,
-                    placeholder: (_, __) => Container(
-                      color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                    placeholder: (_, _) => Container(
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.surfaceContainerHighest,
                       child: const Center(
                         child: CircularProgressIndicator(strokeWidth: 2),
                       ),
                     ),
-                    errorWidget: (_, __, ___) => Container(
-                      color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                    errorWidget: (_, _, _) => Container(
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.surfaceContainerHighest,
                       child: Icon(
                         Icons.restaurant,
-                        color: Theme.of(context)
-                            .colorScheme
-                            .onSurface
-                            .withValues(alpha: 0.3),
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withValues(alpha: 0.3),
                         size: 40,
                       ),
                     ),
@@ -81,8 +84,8 @@ class RecipeCard extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                   const SizedBox(height: 6),
                   Row(
@@ -90,39 +93,35 @@ class RecipeCard extends StatelessWidget {
                       Icon(
                         Icons.schedule,
                         size: 14,
-                        color: Theme.of(context)
-                            .colorScheme
-                            .onSurface
-                            .withValues(alpha: 0.6),
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withValues(alpha: 0.6),
                       ),
                       const SizedBox(width: 4),
                       Text(
                         '${receita.tempoPreparoMin} min',
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .onSurface
-                                  .withValues(alpha: 0.6),
-                            ),
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.onSurface.withValues(alpha: 0.6),
+                        ),
                       ),
                       const SizedBox(width: 12),
                       Icon(
                         Icons.signal_cellular_alt,
                         size: 14,
-                        color: Theme.of(context)
-                            .colorScheme
-                            .onSurface
-                            .withValues(alpha: 0.6),
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSurface.withValues(alpha: 0.6),
                       ),
                       const SizedBox(width: 4),
                       Text(
                         receita.dificuldade.label,
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .onSurface
-                                  .withValues(alpha: 0.6),
-                            ),
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.onSurface.withValues(alpha: 0.6),
+                        ),
                       ),
                     ],
                   ),

@@ -1,11 +1,17 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../shared/local_db/local_db.dart';
 import '../../data/auth_repository.dart';
 import '../../domain/user_model.dart';
 
+/// Provider do banco local (singleton).
+final localDbProvider = Provider<LocalDb>((ref) {
+  return LocalDb();
+});
+
 /// Provider do repositorio de autenticacao (singleton).
 final authRepositoryProvider = Provider<AuthRepository>((ref) {
-  return AuthRepository();
+  return AuthRepository(db: ref.watch(localDbProvider));
 });
 
 /// Stream que emite o [AppUser] atual (ou `null` se nao logado).

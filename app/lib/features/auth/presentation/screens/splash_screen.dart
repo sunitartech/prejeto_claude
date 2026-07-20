@@ -37,7 +37,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
       loading: () {
         // Mantem splash. O redirect do router cuida quando o stream emitir.
       },
-      error: (_, __) {
+      error: (_, _) {
         if (!mounted) return;
         context.go('/welcome');
       },
@@ -69,11 +69,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
                   ),
                 ],
               ),
-              child: Icon(
-                Icons.eco,
-                size: 56,
-                color: scheme.primary,
-              ),
+              child: Icon(Icons.eco, size: 56, color: scheme.primary),
             ),
             const SizedBox(height: 24),
             const Text(
@@ -95,9 +91,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
               ),
             ),
             const SizedBox(height: 48),
-            const CircularProgressIndicator(
-              color: Colors.white,
-            ),
+            const CircularProgressIndicator(color: Colors.white),
           ],
         ),
       ),

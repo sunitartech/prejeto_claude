@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// essa classe sera substituida por um repository que sincroniza
 /// `users/{uid}/favorites` no Firestore.
 class FavoritesStorage {
-  FavoritesStorage({SharedPreferences? prefs}) : _prefs = prefs;
+  FavoritesStorage({this._prefs});
 
   static const String _chave = 'favorite_recipe_ids';
 

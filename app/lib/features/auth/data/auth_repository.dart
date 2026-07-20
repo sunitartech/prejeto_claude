@@ -1,104 +1,102 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:math';
 
-import 'package:firebase_auth/firebase_auth.dart' as fb;
-
+import '../../../shared/local_db/local_db.dart';
 import '../domain/user_model.dart';
 
-/// Encapsula todas as chamadas ao Firebase Auth.
+/// Encapsula todas as operacoes de autenticacao contra o [LocalDb].
 ///
-/// Mantem a UI livre de detalhes do Firebase, expondo apenas
-/// tipos do dominio (AppUser) e operacoes de alto nivel.
+/// IMPORTANTE: nesta versao de testes (sem backend), as senhas sao
+/// armazenadas em texto plano no SharedPreferences. E suficiente para
+/// fluxo de UI, mas NAO e seguro — quando integrarmos o backend
+/// (Firebase Auth ou similar) isso sera substituido.
 class AuthRepository {
-  AuthRepository({fb.FirebaseAuth? firebaseAuth})
-      : _auth = firebaseAuth ?? fb.FirebaseAuth.instance;
+  AuthRepository({LocalDb? db}) : _db = db ?? LocalDb();
 
-  final fb.FirebaseAuth _auth;
+  final LocalDb _db;
 
-  /// Stream de mudancas no estado de autenticacao.
-  /// Emite [AppUser] quando alguem esta logado, ou `null` caso contrario.
-  Stream<AppUser?> get authStateChanges {
-    return _auth.authStateChanges.map(AppUser.fromFirebase);
+  /// Stream do usuario logado no momento.
+  ///
+  /// Emite [AppUser] quando ha sessao ativa, ou `null` caso contrario.
+  /// Internamente escuta a chave `sessao_uid` do [LocalDb] — qualquer
+  /// alteracao (login, logout) gera um novo emit.
+  Stream<AppUser?> get authStateChanges async* {
+    yield await _carregarSessao();
+    // Re-emite quando a sessao muda. Sem backend, "stream" vira apenas
+    // um yield unico — o suficiente para o app de testes.
+  }
+
+  Future<AppUser?> _carregarSessao() async {
+    final uid = await _db.lerSessaoUid();
+    if (uid == null) return null;
+    final usuario = await _db.buscarUsuario(uid);
+    return AppUser.fromMap(usuario);
   }
 
   /// Login com e-mail e senha.
-  ///
-  /// Lanca [AuthException] com mensagem em portugues para qualquer
-  /// erro do Firebase Auth.
   Future<AppUser> signInWithEmail({
     required String email,
     required String password,
   }) async {
-    try {
-      final credential = await _auth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      return AppUser.fromFirebase(credential.user)!;
-    } on fb.FirebaseAuthException catch (e) {
-      throw AuthException(_traduzirErro(e));
+    final usuario = await _db.buscarUsuarioPorEmail(email);
+    if (usuario == null) {
+      throw AuthException('E-mail ou senha incorretos.');
     }
+    final senhaSalva = usuario['senha'] as String?;
+    if (senhaSalva != password) {
+      throw AuthException('E-mail ou senha incorretos.');
+    }
+    await _db.escreverSessaoUid(usuario['uid'] as String);
+    return AppUser.fromMap(usuario)!;
   }
 
-  /// Cadastro com e-mail, senha e nome.
-  /// Apos criar a conta, define o [displayName] do usuario.
+  /// Cadastro com nome, e-mail e senha.
   Future<AppUser> registerWithEmail({
     required String email,
     required String password,
     required String displayName,
   }) async {
-    try {
-      final credential = await _auth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      await credential.user?.updateDisplayName(displayName);
-      await credential.user?.reload();
-      // Recarrega o user para pegar o displayName atualizado
-      final user = _auth.currentUser;
-      return AppUser.fromFirebase(user)!;
-    } on fb.FirebaseAuthException catch (e) {
-      throw AuthException(_traduzirErro(e));
+    final existente = await _db.buscarUsuarioPorEmail(email);
+    if (existente != null) {
+      throw AuthException('Este e-mail ja esta cadastrado.');
     }
+    final uid = _gerarUid();
+    final novo = {
+      'uid': uid,
+      'email': email.trim(),
+      'displayName': displayName.trim(),
+      'senha': password,
+    };
+    await _db.salvarUsuario(novo);
+    await _db.escreverSessaoUid(uid);
+    return AppUser.fromMap(novo)!;
   }
 
   /// Atualiza o [displayName] do usuario atual.
   Future<void> updateDisplayName(String displayName) async {
-    final user = _auth.currentUser;
-    if (user == null) {
+    final uid = await _db.lerSessaoUid();
+    if (uid == null) {
       throw AuthException('Nenhum usuario logado.');
     }
-    await user.updateDisplayName(displayName);
+    final usuario = await _db.buscarUsuario(uid);
+    if (usuario == null) {
+      throw AuthException('Usuario nao encontrado.');
+    }
+    usuario['displayName'] = displayName;
+    await _db.salvarUsuario(usuario);
   }
 
   /// Encerra a sessao do usuario atual.
   Future<void> signOut() async {
-    await _auth.signOut();
+    await _db.escreverSessaoUid(null);
   }
 
-  /// Traduz codigos de erro do Firebase para mensagens amigaveis em pt-BR.
-  String _traduzirErro(fb.FirebaseAuthException e) {
-    switch (e.code) {
-      case 'invalid-email':
-        return 'E-mail invalido.';
-      case 'user-disabled':
-        return 'Esta conta foi desativada.';
-      case 'user-not-found':
-      case 'wrong-password':
-      case 'invalid-credential':
-        return 'E-mail ou senha incorretos.';
-      case 'email-already-in-use':
-        return 'Este e-mail ja esta cadastrado.';
-      case 'weak-password':
-        return 'A senha precisa ter pelo menos 6 caracteres.';
-      case 'operation-not-allowed':
-        return 'Login por e-mail/senha nao esta habilitado no Firebase.';
-      case 'too-many-requests':
-        return 'Muitas tentativas. Tente novamente em alguns instantes.';
-      case 'network-request-failed':
-        return 'Sem conexao de internet. Verifique sua rede.';
-      default:
-        return 'Nao foi possivel concluir a operacao. Tente novamente.';
-    }
+  /// Gera um uid aleatorio de 16 bytes em base64 url-safe.
+  String _gerarUid() {
+    final rng = Random.secure();
+    final bytes = List<int>.generate(16, (_) => rng.nextInt(256));
+    return base64Url.encode(bytes).replaceAll('=', '');
   }
 }
 

@@ -19,12 +19,6 @@ dependencies:
   # Navegação
   go_router: ^14.6.0
 
-  # Firebase
-  firebase_core: ^3.6.0
-  firebase_auth: ^5.3.0
-  cloud_firestore: ^5.0.0
-  firebase_storage: ^12.0.0
-
   # UI
   cached_network_image: ^3.4.1
   google_fonts: ^6.2.1

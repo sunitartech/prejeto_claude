@@ -1,9 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
-
 /// Representacao de dominio do usuario autenticado no Fitnho.
 ///
-/// Encapsula apenas o que a UI/negocio precisa, sem vazar tipos do
-/// `firebase_auth` para a camada de apresentacao.
+/// Nesta versao de testes (sem Firebase), o [AppUser] e construido a
+/// partir do banco local (SharedPreferences) e nao depende de
+/// `firebase_auth`.
 class AppUser {
   const AppUser({
     required this.uid,
@@ -15,16 +14,23 @@ class AppUser {
   final String? email;
   final String? displayName;
 
-  /// Converte um [User] do Firebase Auth em [AppUser].
-  /// Retorna `null` se o Firebase User for null (ninguem logado).
-  static AppUser? fromFirebase(User? user) {
-    if (user == null) return null;
+  /// Construtor a partir de um mapa do banco local.
+  /// Retorna `null` se o mapa for null.
+  static AppUser? fromMap(Map<String, dynamic>? map) {
+    if (map == null) return null;
     return AppUser(
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
+      uid: map['uid'] as String,
+      email: map['email'] as String?,
+      displayName: map['displayName'] as String?,
     );
   }
+
+  /// Serializa para o formato do banco local.
+  Map<String, dynamic> toMap() => {
+        'uid': uid,
+        'email': email,
+        'displayName': displayName,
+      };
 
   /// Primeiro nome do usuario, para saudacoes. Fallback para "voce".
   String get primeiroNome {

@@ -70,15 +70,15 @@ class _Corpo extends StatelessWidget {
                 CachedNetworkImage(
                   imageUrl: receita.imagemUrl,
                   fit: BoxFit.cover,
-                  placeholder: (_, __) => Container(
-                    color: Theme.of(context)
-                        .colorScheme
-                        .surfaceContainerHighest,
+                  placeholder: (_, _) => Container(
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.surfaceContainerHighest,
                   ),
-                  errorWidget: (_, __, ___) => Container(
-                    color: Theme.of(context)
-                        .colorScheme
-                        .surfaceContainerHighest,
+                  errorWidget: (_, _, _) => Container(
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.surfaceContainerHighest,
                     child: const Icon(Icons.restaurant, size: 60),
                   ),
                 ),
@@ -112,9 +112,7 @@ class _Corpo extends StatelessWidget {
                     Expanded(
                       child: Text(
                         receita.titulo,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall
+                        style: Theme.of(context).textTheme.headlineSmall
                             ?.copyWith(fontWeight: FontWeight.w700),
                       ),
                     ),
@@ -125,11 +123,10 @@ class _Corpo extends StatelessWidget {
                 Text(
                   receita.descricao,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: Theme.of(context)
-                            .colorScheme
-                            .onSurface
-                            .withValues(alpha: 0.7),
-                      ),
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withValues(alpha: 0.7),
+                  ),
                 ),
                 const SizedBox(height: 16),
                 Wrap(
@@ -159,10 +156,9 @@ class _Corpo extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: Theme.of(context)
-                          .colorScheme
-                          .primary
-                          .withValues(alpha: 0.08),
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.primary.withValues(alpha: 0.08),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Row(
@@ -187,9 +183,9 @@ class _Corpo extends StatelessWidget {
                 // Ingredientes
                 Text(
                   'Ingredientes',
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.w700,
-                      ),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
                 ),
                 const SizedBox(height: 12),
                 ...receita.ingredientes.map<Widget>(
@@ -209,7 +205,10 @@ class _Corpo extends StatelessWidget {
                         ),
                         const SizedBox(width: 12),
                         Expanded(
-                          child: Text(ing, style: Theme.of(context).textTheme.bodyLarge),
+                          child: Text(
+                            ing,
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
                         ),
                       ],
                     ),
@@ -220,9 +219,9 @@ class _Corpo extends StatelessWidget {
                 // Modo de preparo
                 Text(
                   'Modo de preparo',
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.w700,
-                      ),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
                 ),
                 const SizedBox(height: 12),
                 ...receita.modoPreparo.asMap().entries.map<Widget>((entry) {
@@ -251,7 +250,10 @@ class _Corpo extends StatelessWidget {
                         ),
                         const SizedBox(width: 12),
                         Expanded(
-                          child: Text(passo, style: Theme.of(context).textTheme.bodyLarge),
+                          child: Text(
+                            passo,
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
                         ),
                       ],
                     ),

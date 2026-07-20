@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -37,7 +35,8 @@ final appRouterProvider = Provider<GoRouterConfig>((ref) {
       final auth = ref.read(authStateChangesProvider);
       final loggedIn = auth.valueOrNull != null;
       final loc = state.matchedLocation;
-      final indoParaAuth = loc == '/splash' ||
+      final indoParaAuth =
+          loc == '/splash' ||
           loc == '/welcome' ||
           loc == '/login' ||
           loc == '/register';
@@ -50,22 +49,10 @@ final appRouterProvider = Provider<GoRouterConfig>((ref) {
       return null;
     },
     routes: [
-      GoRoute(
-        path: '/splash',
-        builder: (_, __) => const SplashScreen(),
-      ),
-      GoRoute(
-        path: '/welcome',
-        builder: (_, __) => const WelcomeScreen(),
-      ),
-      GoRoute(
-        path: '/login',
-        builder: (_, __) => const LoginScreen(),
-      ),
-      GoRoute(
-        path: '/register',
-        builder: (_, __) => const RegisterScreen(),
-      ),
+      GoRoute(path: '/splash', builder: (_, _) => const SplashScreen()),
+      GoRoute(path: '/welcome', builder: (_, _) => const WelcomeScreen()),
+      GoRoute(path: '/login', builder: (_, _) => const LoginScreen()),
+      GoRoute(path: '/register', builder: (_, _) => const RegisterScreen()),
 
       // Shell com 4 abas (apos login)
       StatefulShellRoute.indexedStack(
@@ -74,25 +61,19 @@ final appRouterProvider = Provider<GoRouterConfig>((ref) {
         branches: [
           StatefulShellBranch(
             routes: [
-              GoRoute(
-                path: '/home',
-                builder: (_, __) => const HomeScreen(),
-              ),
+              GoRoute(path: '/home', builder: (_, _) => const HomeScreen()),
             ],
           ),
           StatefulShellBranch(
             routes: [
-              GoRoute(
-                path: '/busca',
-                builder: (_, __) => const SearchScreen(),
-              ),
+              GoRoute(path: '/busca', builder: (_, _) => const SearchScreen()),
             ],
           ),
           StatefulShellBranch(
             routes: [
               GoRoute(
                 path: '/favoritos',
-                builder: (_, __) => const FavoritesScreen(),
+                builder: (_, _) => const FavoritesScreen(),
               ),
             ],
           ),
@@ -100,7 +81,7 @@ final appRouterProvider = Provider<GoRouterConfig>((ref) {
             routes: [
               GoRoute(
                 path: '/perfil',
-                builder: (_, __) => const ProfileScreen(),
+                builder: (_, _) => const ProfileScreen(),
               ),
             ],
           ),
@@ -125,16 +106,19 @@ final appRouterProvider = Provider<GoRouterConfig>((ref) {
 /// refresh no [GoRouter] para que o `redirect` reavalie a rota atual.
 class _AuthRefreshNotifier extends ChangeNotifier {
   _AuthRefreshNotifier(Ref ref) {
-    _sub = ref.read(authStateChangesProvider.stream).listen((_) {
-      notifyListeners();
-    });
+    // `ref.listen` reage a cada novo [AsyncValue] do provider, incluindo
+    // a transicao de `loading` para `data` (login confirmado).
+    _sub = ref.listen<AsyncValue<dynamic>>(
+      authStateChangesProvider,
+      (_, _) => notifyListeners(),
+    );
   }
 
-  late final StreamSubscription _sub;
+  late final ProviderSubscription<AsyncValue<dynamic>> _sub;
 
   @override
   void dispose() {
-    _sub.cancel();
+    _sub.close();
     super.dispose();
   }
 }
